@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Media Vault | Профессиональный архив</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-lines"></div>
+    <div class="container">
+        <!-- Welcome Section -->
+        <section class="welcome-section" id="welcomeSection">
+            <div class="welcome-container">
+                <div class="welcome-content">
+                    <div class="logo">
+                        <i class="fas fa-gem"></i>
+                        <span>EliteVault</span>
+                    </div>
+                    <h1>Защищенный Медиа-Архив</h1>
+                    <p>Профессиональная платформа для управления конфиденциальными материалами</p>
+                    <button class="enter-btn" id="enterBtn">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Войти в систему</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auth Section -->
+        <section class="auth-section hidden" id="authSection">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <div class="logo">
+                        <i class="fas fa-gem"></i>
+                        <span>EliteVault</span>
+                    </div>
+                    <h1>Авторизация доступа</h1>
+                    <p>Выберите уровень доступа к системе</p>
+                </div>
+
+                <div class="access-cards">
+                    <div class="access-card" data-level="viewer">
+                        <div class="card-header">
+                            <i class="fas fa-eye"></i>
+                            <h3>Режим просмотра</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Просмотр всех материалов</li>
+                                <li><i class="fas fa-check"></i> Поиск по архиву</li>
+                                <li><i class="fas fa-times"></i> Загрузка файлов</li>
+                                <li><i class="fas fa-times"></i> Удаление материалов</li>
+                            </ul>
+                            <div class="password-input">
+                                <input type="password" placeholder="Введите пароль доступа" data-level="viewer">
+                                <button class="auth-btn viewer-btn">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <span>Войти в систему</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="access-card premium" data-level="admin">
+                        <div class="premium-badge">
+                            <i class="fas fa-crown"></i>
+                            Премиум доступ
+                        </div>
+                        <div class="card-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Администратор</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="features-list">
+                                <li><i class="fas fa-check"></i> Полный доступ к архиву</li>
+                                <li><i class="fas fa-check"></i> Загрузка материалов</li>
+                                <li><i class="fas fa-check"></i> Управление файлами</li>
+                                <li><i class="fas fa-check"></i> Скачивание контента</li>
+                            </ul>
+                            <div class="password-input">
+                                <input type="password" placeholder="Введите административный пароль" data-level="admin">
+                                <button class="auth-btn admin-btn">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <span>Войти в систему</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auth-error" id="authError"></div>
+
+                <div class="back-to-welcome">
+                    <button class="back-btn" id="backToWelcomeBtn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Вернуться на главную</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agreement Section -->
+        <section class="agreement-section hidden" id="agreementSection">
+            <div class="agreement-container">
+                <div class="agreement-header">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>СИСТЕМА КОНТРОЛЯ ДОСТУПА</span>
+                    </div>
+                    <h1>СОГЛАШЕНИЕ О КОНФИДЕНЦИАЛЬНОСТИ</h1>
+                    <p class="warning-text">ВНИМАНИЕ: ДОСТУП К СИСТЕМЕ ОГРАНИЧЕН</p>
+                </div>
+
+                <div class="agreement-content">
+                    <div class="legal-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>ЮРИДИЧЕСКОЕ ПРЕДУПРЕЖДЕНИЕ</h3>
+                    </div>
+                    
+                    <div class="terms-list">
+                        <div class="term-item">
+                            <i class="fas fa-ban"></i>
+                            <div class="term-text">
+                                <h4>Запрещено сохранение материалов</h4>
+                                <p>Строго запрещается любыми способами, включая обходные пути, сохранять, копировать, скачивать или распространять любые материалы, доступные в системе.</p>
+                            </div>
+                        </div>
+
+                        <div class="term-item">
+                            <i class="fas fa-user-secret"></i>
+                            <div class="term-text">
+                                <h4>Контроль доступа</h4>
+                                <p>Все действия пользователя отслеживаются и записываются. Попытки несанкционированного доступа будут зафиксированы.</p>
+                            </div>
+                        </div>
+
+                        <div class="term-item">
+                            <i class="fas fa-camera"></i>
+                            <div class="term-text">
+                                <h4>Система мониторинга</h4>
+                                <p>Активирована система распознавания лиц и поведенческого анализа. Все сессии записываются.</p>
+                            </div>
+                        </div>
+
+                        <div class="term-item">
+                            <i class="fas fa-network-wired"></i>
+                            <div class="term-text">
+                                <h4>Сетевой контроль</h4>
+                                <p>Регистрируются все сетевые подключения, IP-адреса, MAC-адреса и данные об используемом оборудовании.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="consequences-section">
+                        <h3><i class="fas fa-gavel"></i> ПРАВОВЫЕ ПОСЛЕДСТВИЯ НАРУШЕНИЯ</h3>
+                        <div class="consequences-grid">
+                            <div class="consequence-item severe">
+                                <i class="fas fa-passport"></i>
+                                <h4>Сбор персональных данных</h4>
+                                <p>В случае нарушения автоматически собираются: паспортные данные, место прописки и проживания, биометрические данные</p>
+                            </div>
+                            <div class="consequence-item severe">
+                                <i class="fas fa-desktop"></i>
+                                <h4>Анализ устройства</h4>
+                                <p>Производится полный анализ устройства: история браузера, файловая система, установленные программы</p>
+                            </div>
+                            <div class="consequence-item critical">
+                                <i class="fas fa-balance-scale"></i>
+                                <h4>Уголовное преследование</h4>
+                                <p>Все полученные данные передаются в специальные органы для возбуждения уголовного дела</p>
+                            </div>
+                            <div class="consequence-item critical">
+                                <i class="fas fa-database"></i>
+                                <h4>Пожизненная запись в реестре</h4>
+                                <p>Данные о нарушителе вносятся в государственный реестр лиц, совершивших киберпреступления</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="agreement-footer">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="agreeCheckbox">
+                            <label for="agreeCheckbox">
+                                <span class="checkmark"></span>
+                                Я полностью понимаю и принимаю все условия данного соглашения. Осознаю, что любая попытка сохранения материалов приведет к автоматическому сбору моих персональных данных и передаче их в правоохранительные органы для возбуждения уголовного дела.
+                            </label>
+                        </div>
+                        
+                        <div class="agreement-buttons">
+                            <button class="back-btn" id="backToAuthBtn">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Назад</span>
+                            </button>
+                            <button class="agree-btn" id="agreeBtn" disabled>
+                                <i class="fas fa-fingerprint"></i>
+                                <span>ПРИНЯТЬ СОГЛАШЕНИЕ</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cut Scene Section -->
+        <section class="cut-scene hidden" id="cutScene">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">
+                        <i class="fas fa-terminal"></i>
+                        SYSTEM_BOOT_SEQUENCE.exe
+                    </div>
+                </div>
+                <div class="terminal-body">
+                    <div class="code-output" id="codeOutput">
+                        <div class="code-line">> Инициализация системы безопасности...</div>
+                    </div>
+                    <div class="terminal-input">
+                        <span class="prompt">root@elitevault:~$</span>
+                        <span class="cursor" id="cursor">|</span>
+                    </div>
+                </div>
+            </div>
+            <div class="access-granted hidden" id="accessGranted">
+                <div class="granted-content">
+                    <div class="granted-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h1>ДОСТУП К СИСТЕМЕ ПОЛУЧЕН</h1>
+                    <p>Инициализация пользовательского интерфейса...</p>
+                    <div class="loading-bar">
+                        <div class="loading-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Application -->
+        <main class="main-app hidden" id="mainApp">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-left">
+                    <div class="app-logo">
+                        <i class="fas fa-gem"></i>
+                        <span>EliteVault</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-badge" id="userBadge">
+                            <i class="fas fa-user-shield"></i>
+                            <span id="userRole">Администратор</span>
+                        </div>
+                        <div class="login-time" id="loginTime"></div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Завершить сеанс</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Navigation -->
+            <nav class="app-nav">
+                <div class="nav-container">
+                    <button class="nav-btn active" data-filter="all">
+                        <i class="fas fa-th-large"></i>
+                        <span>Все файлы</span>
+                    </button>
+                    <button class="nav-btn" data-filter="image">
+                        <i class="fas fa-images"></i>
+                        <span>Фотографии</span>
+                    </button>
+                    <button class="nav-btn" data-filter="video">
+                        <i class="fas fa-film"></i>
+                        <span>Видео</span>
+                    </button>
+                    <button class="nav-btn upload-trigger" id="uploadTrigger">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Загрузить</span>
+                    </button>
+                    <button class="nav-btn danger" id="clearAllBtn">
+                        <i class="fas fa-trash"></i>
+                        <span>Очистить архив</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Upload Section -->
+            <section class="upload-section hidden" id="uploadSection">
+                <div class="upload-card">
+                    <div class="upload-header">
+                        <h3><i class="fas fa-upload"></i> Загрузка файлов</h3>
+                        <button class="close-upload" id="closeUpload">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Перетащите файлы сюда</h4>
+                            <p>или нажмите для выбора</p>
+                            <span class="file-types">JPG, PNG, MP4, AVI</span>
+                        </div>
+                        <input type="file" id="fileInput" class="file-input" multiple accept="image/*,video/*">
+                    </div>
+                    <div class="upload-actions">
+                        <div class="file-info" id="fileInfo"></div>
+                        <button class="upload-action-btn" id="processUpload">
+                            <i class="fas fa-play"></i>
+                            Начать загрузку
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="gallery-section">
+                <div class="gallery-header">
+                    <h3 id="galleryTitle">Все материалы</h3>
+                    <div class="gallery-stats">
+                        <span id="fileCount">0 файлов</span>
+                        <span class="session-info">Сессия: <span id="sessionDuration">00:00</span></span>
+                    </div>
+                </div>
+
+                <div class="gallery-container">
+                    <div class="gallery-grid" id="galleryGrid">
+                        <!-- Media items will be inserted here -->
+                    </div>
+
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Архив пуст</h3>
+                        <p>Начните с загрузки первого файла</p>
+                        <button class="cta-btn" id="emptyUploadBtn">
+                            <i class="fas fa-plus"></i>
+                            Добавить файлы
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Photo Viewer -->
+        <div class="photo-viewer hidden" id="photoViewer">
+            <div class="viewer-overlay" id="viewerOverlay"></div>
+            <div class="viewer-container">
+                <button class="viewer-close" id="viewerClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <button class="viewer-nav viewer-prev" id="viewerPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="viewer-content">
+                    <div class="image-container">
+                        <img id="viewerImage" src="" alt="">
+                    </div>
+                    <div class="viewer-info">
+                        <h3 id="viewerTitle"></h3>
+                        <p id="viewerMeta"></p>
+                    </div>
+                </div>
+                
+                <button class="viewer-nav viewer-next" id="viewerNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="viewer-counter">
+                    <span id="viewerCounter">1 / 1</span>
+                </div>
+                
+                <div class="viewer-tools">
+                    <button class="tool-btn" id="rotateLeft" title="Повернуть налево">
+                        <i class="fas fa-undo"></i>
+                    </button>
+                    <button class="tool-btn" id="rotateRight" title="Повернуть направо">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <button class="tool-btn" id="resetRotation" title="Сбросить поворот">
+                        <i class="fas fa-sync"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
